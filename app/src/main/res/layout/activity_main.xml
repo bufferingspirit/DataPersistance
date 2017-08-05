@@ -28,6 +28,11 @@
         android:id="@+id/btnGetData"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"/>
+    <Button
+        android:text="Switch"
+        android:onClick="switchView"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
 
     <TextView
         android:id="@+id/tvOne"

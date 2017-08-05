@@ -1,6 +1,7 @@
 package com.example.admin.datapersistance;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -33,6 +34,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void switchView(View veiw){
+        Intent intent = new Intent(this, Main2Activity.class);
+        startActivity(intent);
+    }
+
     public void saveData(View view){
         SharedPreferences sharedPreferences = getSharedPreferences(MY_PREF_FILE, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -61,8 +67,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        Log.d(TAG, "on Restart: ");
+    }
+
+    @Override
     protected void onPause() {
         super.onPause();
+        Log.d(TAG, "onPause: ");
     }
 
     @Override
@@ -75,15 +89,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        Log.d(TAG,"onResume: ");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
+        Log.d(TAG,"onStop: ");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        Log.d(TAG,"onDestroy: ");
     }
 }
